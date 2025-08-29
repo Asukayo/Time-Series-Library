@@ -98,11 +98,6 @@ def split_data_chronologically(X, y, train_ratio=0.6, val_ratio=0.2):
     X_test = X[val_end:]
     y_test = y[val_end:]
 
-    print(f"数据分割:")
-    print(f"  训练集: {len(X_train)} ({len(X_train) / total_samples * 100:.1f}%)")
-    print(f"  验证集: {len(X_val)} ({len(X_val) / total_samples * 100:.1f}%)")
-    print(f"  测试集: {len(X_test)} ({len(X_test) / total_samples * 100:.1f}%)")
-
     return (X_train, y_train), (X_val, y_val), (X_test, y_test)
 
 def create_data_loaders(train_data, val_data, test_data, batch_size=32):

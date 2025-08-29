@@ -11,7 +11,7 @@ import json
 from models.TimeMixer import Model  # 修改：导入TimeMixer模型
 from provider_6_2_2 import load_data, split_data_chronologically, create_data_loaders
 from config import CICIDS_WINDOW_SIZE, CICIDS_WINDOW_STEP
-from trainer_valder import train_epoch, val_epoch
+from TimeMixer_t_v import train_epoch, val_epoch
 
 
 class Config:

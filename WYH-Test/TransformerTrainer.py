@@ -232,9 +232,9 @@ def validate_epoch(model, val_loader, criterion, device):
 
     # 计算其他指标
     all_predicted = (np.array(all_outputs) > 0.5).astype(int)
-    precision = precision_score(all_targets, all_predicted, zero_division=0)
-    recall = recall_score(all_targets, all_predicted, zero_division=0)
-    f1 = f1_score(all_targets, all_predicted, zero_division=0)
+    precision = precision_score(all_targets, all_predicted,average='macro' ,zero_division=0)
+    recall = recall_score(all_targets, all_predicted, average='macro',zero_division=0)
+    f1 = f1_score(all_targets, all_predicted, average='macro',zero_division=0)
     auc = roc_auc_score(all_targets, all_outputs)
 
     return avg_loss, accuracy, precision, recall, f1, auc

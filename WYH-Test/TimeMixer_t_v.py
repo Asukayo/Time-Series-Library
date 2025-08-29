@@ -92,11 +92,11 @@ def val_epoch(model,val_loader,criterion,device='cuda'):
         accuracy = accuracy_score(all_labels,all_preds)
         # 计算精确率 average='weighted'：按类别样本数加权平均
         #           zero_division=0：处理除零情况（当某类别无预测样本时）
-        precision = precision_score(all_labels,all_preds)
+        precision = precision_score(all_labels,all_preds,average='macro')
 
         # average='weighted'
-        recall = recall_score(all_labels,all_preds,average='weighted',zero_division=0)
+        recall = recall_score(all_labels,all_preds,average='macro',zero_division=0)
 
-        f1 = f1_score(all_labels,all_preds,average='weighted',zero_division=0)
+        f1 = f1_score(all_labels,all_preds,average='macro',zero_division=0)
 
         return avg_loss,accuracy,precision,recall,f1
